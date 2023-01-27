@@ -1,9 +1,16 @@
 *{
-    font-family:fantasy
+    font-family: fantasy;
+
+}
+
+body{
+    background-image: url("/docs/assets/images/metroPic.png");
+    background-size: cover;
 }
 
 #container {
 display: flex;
+align-items: center;
 margin-left: 100px;
 margin-top: 40px;
  
@@ -11,18 +18,16 @@ margin-top: 40px;
 
 #canvas
 {
-    display: flex;
-    align-items: center;
     width: 1200px;
     height: 600px ;
-    border: 10px solid black;
+    background-color: rgb(177, 177, 177)
 }
 
 #startButton {
 display: flex;
 align-items: center;
 align-content: center;
-margin-top: 30px;
+margin-top: 20px;
 margin-left: 42vw;
 margin-bottom: 60px;
 padding-left: 54px;
