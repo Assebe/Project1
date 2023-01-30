@@ -1,15 +1,11 @@
 *{
-<<<<<<< HEAD
-    font-family:fantasy 
-=======
-    font-family: fantasy;
-
+    font-family: fantasy 
 }
 
 body{
     background-image: url("/docs/assets/images/metroPic.png");
     background-size: cover;
->>>>>>> 7a1c03640c62a0bb9f02ce8c29c78db8d838d146
+    padding: 0;
 }
 
 
