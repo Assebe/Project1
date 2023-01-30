@@ -1,6 +1,6 @@
 /**  @type {HTMLCanvasElement} */ 
 
-class Player{
+class Component{
     constructor(x, y, w, h, ctx){
     this.x= x
     this.y= y   
