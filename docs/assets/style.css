@@ -1,9 +1,9 @@
 *{
-    font-family: fantasy 
+    font-family: fantasy;
 }
 
 body{
-    background-image: url("/docs/assets/images/metroPic.png");
+    background-color: rgb(44, 44, 123);
     background-size: cover;
     padding: 0;
 }
@@ -21,7 +21,9 @@ margin-top: 40px;
 {
     width: 1200px;
     height: 600px ;
-    background-color: rgb(214, 212, 212)
+    background-image: url(/../docs/assets/images/metro.png);
+    background-size: cover;
+
 }
 
 #startButton {
@@ -41,4 +43,12 @@ border-radius: 7px;
 font-weight: 900;
 font-size: large;
 color:  white;
+}
+
+#timer{
+display: flex;
+color: red;
+font-size: x-large;
+font-weight: 900;
+
 }
