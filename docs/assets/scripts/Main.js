@@ -25,14 +25,9 @@ document.addEventListener("keydown", (e) => {
           }
           break;
     
-        case "ArrowDown": 
-        if (player.y + player.speedY < canvas.height -85){
-        player.speedY += 0.2;
-        } else {
-        player.speedY = 0;
-        }
-        break;
-        }
+        case "ArrowDown": player.speedY += 1; break;
+
+    }
     })
 document.addEventListener("keyup", (e) =>{
         player.speedY = 0
