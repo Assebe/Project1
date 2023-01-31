@@ -12,6 +12,8 @@ class GameEasy{
         this.verticalEnemiesDown = []
         this.bonusItems = []
         this.timer = 60;
+        this.background = new Image ()
+        this.scrollX = 0
       }
 
 
@@ -21,6 +23,10 @@ class GameEasy{
 
  update = () => {
     this.frames++;
+
+    if (this.scrollX >= -525){
+    this.scrollX -= 0.3
+  }
     this.clear();
     this.player.newPos();
     this.player.draw();
@@ -54,11 +60,9 @@ class GameEasy{
         clearInterval(this.isIntervalID)
       }
 
- clear(){
-        this.ctx.clearRect(0, 0, this.width, this.height)
-        /* let background = new Image ()
-        background.scr = "../docs/assets/images/cut.png"
-        this.ctx.drawImage(background, this.bgX, 0, 1300, 600) */
+ clear(){    
+       this.background.src = "../docs/assets/images/metro.png"
+        this.ctx.drawImage(this.background, this.scrollX, 0, 1725, 600) 
     }
 
   updateEnemies() {
@@ -159,7 +163,7 @@ class GameEasy{
   }
 
   checkGameWon(){
-    if(this.player.x >= canvas.width){
+    if(this.scrollX === -525 &&  this.player.x <= canvas.width){
      ctx.font = "50px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
@@ -168,7 +172,7 @@ class GameEasy{
   }
 
   checkGameOver(){
-     if (this.frames >= 3700){
+     if (this.frames >= 3600){
      ctx.font = "32px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);

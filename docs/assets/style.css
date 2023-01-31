@@ -21,8 +21,8 @@ margin-top: 40px;
 {
     width: 1200px;
     height: 600px ;
-    background-image: url(/../docs/assets/images/cut.png);
-    background-size: cover;
+/*     background-image: url(/../docs/assets/images/cut.png);
+    background-size: cover; */
     position: absolute;
     transform: translate(-50%, -50%); 
     top: 50%;
@@ -31,7 +31,7 @@ margin-top: 40px;
 }
 
 #startButton {
-display: flex;
+/* display: flex; */
 align-items: center;
 align-content: center;
 text-align: center;
@@ -70,7 +70,7 @@ color:  white;
 
 
     #easyButton {
-        display: flex;
+/*         display: flex; */
         align-items: center;
         align-content: center;
         text-align: center;
@@ -90,7 +90,7 @@ color:  white;
 
 
         #hardButton {
-            display: flex;
+         /*    display: flex; */
             align-items: center;
             align-content: center;
             text-align: center;
