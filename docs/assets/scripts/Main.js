@@ -20,4 +20,6 @@ document.addEventListener("keydown", (e) => {
         case "ArrowDown": player.speedY += 1; break;
 
     }
+
+    
     })
