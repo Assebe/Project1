@@ -60,17 +60,19 @@ class Component{
 }
 
 class BonusItem{
-  constructor(x, y, w, h, color, ctx) {
+  constructor(x, y, w, h, ctx) {
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
-    this.color = color;
+    this.image = [];
     this.ctx = ctx;
   }
 
+
+
   draw(){
-    this.ctx.fillStyle = this.color;
+    this.ctx.fillStyle = this.image;
     this.ctx.fillRect(this.x , this.y , this.w, this.h)
     }
 
@@ -102,11 +104,12 @@ class Enemy {
       this.ctx = ctx;
       this.speedX = 0;
       this.speedY = 0;
+      this.img = new Image();
+      this.img.src = "../docs/assets/images/Enemies/person2-NoBG.png";
     }
   
   draw() {
-      this.ctx.fillStyle = this.color;
-      this.ctx.fillRect(this.x, this.y, this.w, this.h);
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
     }
   
     top(){

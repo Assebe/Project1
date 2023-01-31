@@ -11,7 +11,7 @@ class GameHard{
         this.verticalEnemiesUp = []
         this.verticalEnemiesDown = []
         this.bonusItems = []
-        this.timer = 59;
+        this.timer = 50;
       }
 
 
@@ -162,15 +162,17 @@ class GameHard{
      ctx.fillStyle = "red";
      ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
      this.stop()
+     setTimeout(() => this.clear(), 3000)
     }
   }
 
   checkGameOver(){
-     if (this.frames >= 3000){
+     if (this.frames >= 3100){
      ctx.font = "32px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);
      this.stop()
+     setTimeout(() => this.clear(), 3000)
         }
 }
 

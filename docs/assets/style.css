@@ -116,3 +116,23 @@ font-size: x-large;
 font-weight: 900;
 
 }
+
+.hidden{
+    display: none;
+}
+
+.easy-hidden{
+    display: none;
+}
+
+.hard-hidden{
+    display: none;
+}
+
+#startButton{
+    transition-duration: 0.4s;
+}
+#startButton:hover{
+    font-size: 1.6em;
+    background-color: purple;
+}
