@@ -71,7 +71,7 @@ class GameEasy{
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
     
-          this.enemies.push(new Enemy(1200, randomY, 40, 40, "img", this.ctx));
+          this.enemies.push(new Enemy(1200, randomY, 40, 40, this.ctx));
         }
       }
 
@@ -85,7 +85,7 @@ class GameEasy{
         if (this.frames % 140 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
+          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, this.ctx));
         }
       }
 
@@ -99,7 +99,7 @@ class GameEasy{
         if (this.frames % 140 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
+          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, this.ctx));
         }
       }
 
@@ -113,7 +113,7 @@ class GameEasy{
     
           let randomY = Math.floor(Math.random() * (600 - 100) + 100);
     
-          this.bonusItems.push(new BonusItem(1200, randomY, 20, 20, "yellow", this.ctx));
+          this.bonusItems.push(new BonusItem(1200, randomY, 20, 20, this.ctx));
         }
       }
 

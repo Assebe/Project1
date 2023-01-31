@@ -65,14 +65,13 @@ class BonusItem{
     this.y = y;
     this.w = w;
     this.h = h;
-    this.image = [];
     this.ctx = ctx;
   }
 
 
 
   draw(){
-    this.ctx.fillStyle = this.image;
+    this.ctx.fillStyle = "red";
     this.ctx.fillRect(this.x , this.y , this.w, this.h)
     }
 
@@ -95,12 +94,11 @@ class BonusItem{
 
 
 class Enemy {
-    constructor(x, y, w, h, color, ctx) {
+    constructor(x, y, w, h, ctx) {
       this.x = x;
       this.y = y;
       this.w = w;
       this.h = h;
-      this.color = color;
       this.ctx = ctx;
       this.speedX = 0;
       this.speedY = 0;

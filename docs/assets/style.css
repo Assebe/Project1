@@ -130,7 +130,7 @@ font-weight: 900;
 }
 
 #startButton{
-    transition-duration: 0.4s;
+    transition-duration: 0.5s;
 }
 #startButton:hover{
     font-size: 1.6em;
