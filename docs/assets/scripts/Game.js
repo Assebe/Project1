@@ -8,9 +8,10 @@ class Game{
         this.isIntervalID = null;
         this.frames = 0;
         this.enemies = []
-        this.verticalEnemies = []
+        this.verticalEnemiesUp = []
+        this.verticalEnemiesDown = []
         this.bonusItems = []
-        this.backgroundImage = new Image();
+        this.timer = 60;
       }
 
 
@@ -24,11 +25,33 @@ class Game{
     this.player.newPos();
     this.player.draw();
     this.updateEnemies();
-    this.updateVerticalEnemies();
+    this.updateVerticalEnemiesUp();
+    this.updateVerticalEnemiesDown();
     this.updateBonusItems();
     this.checkColision();
+    this.checkIfTouched()
     this.checkGameWon();
     this.checkGameOver();
+    this.drawTimer();
+    this.updateTimer();
+    this.animate()
+    }
+
+    animate(){
+      ctx.drawImage(backgroundImage, 0, 0)
+      requestAnimationFrame(animate);
+  }
+     
+    drawTimer() {
+      ctx.font = "45px rainyhearts";
+      ctx.fillStyle = "white"
+      ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 80, 30);
+    }
+  
+    updateTimer() {
+      if (this.frames % 40 === 0) {
+        this.timer--;
+      }
     }
 
  stop() {
@@ -45,7 +68,7 @@ class Game{
           this.enemies[i].draw();
         }
     
-        if (this.frames % 0 === 0) {
+        if (this.frames % 100 == 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
     
@@ -53,17 +76,31 @@ class Game{
         }
       }
 
-      updateVerticalEnemies() {
-        for (let i = 0; i < this.verticalEnemies.length; i++) {
-          this.verticalEnemies[i].x -= 3;
-          this.verticalEnemies[i].y -= 0.5;
-          this.verticalEnemies[i].draw();
+      updateVerticalEnemiesUp() {
+        for (let i = 0; i < this.verticalEnemiesUp.length; i++) {
+          this.verticalEnemiesUp[i].x -= 3;
+          this.verticalEnemiesUp[i].y += 0.5;
+          this.verticalEnemiesUp[i].draw();
         }
     
-        if (this.frames % 70 === 0) {
+        if (this.frames % 100 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemies.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
+          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
+        }
+      }
+
+      updateVerticalEnemiesDown() {
+        for (let i = 0; i < this.verticalEnemiesDown.length; i++) {
+          this.verticalEnemiesDown[i].x -= 3;
+          this.verticalEnemiesDown[i].y -= 0.5;
+          this.verticalEnemiesDown[i].draw();
+        }
+    
+        if (this.frames % 100 === 0) {
+    
+          let randomY = Math.floor(Math.random() * (600 - 50) + 50);
+          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
         }
       }
 
@@ -77,20 +114,49 @@ class Game{
     
           let randomY = Math.floor(Math.random() * (600 - 100) + 100);
     
-          this.bonusItems.push(new BonusItem(1200, randomY, 30, 20, "yellow", this.ctx));
+          this.bonusItems.push(new BonusItem(1200, randomY, 20, 20, "yellow", this.ctx));
         }
       }
 
   checkColision() {
         const crashedEnemies = this.enemies.some((enemy) => {
           return this.player.crashWith(enemy);
-        });
-    
+        })
         if (crashedEnemies) {
-          this.stop()
+
+          setInterval(this.player.speedX -= 0.1, 1000)
+        
         }
       }
+
+      checkColisionUp() {
+            const crashedEnemies = this.verticalEnemiesUp.some((enemy) => {
+              return this.player.crashWith(enemy);
+            })
+            if (crashedEnemies) {
+              this.player.speedX -= 0.1
+            
+            }
+          }
+          checkColisionDown() {
+                const crashedEnemies = this.verticalEnemiesDown.some((enemy) => {
+                  return this.player.crashWith(enemy);
+                })
+                if (crashedEnemies) {
+                  this.player.speedX -= 0.1
+                
+                }
+              }
     
+  checkIfTouched(){
+    const touched = this.bonusItems.some((bonusItem) => {
+        return this.player.touchBonus(bonusItem);
+    })
+    if(touched){
+        this.player.speedX += 0.1
+        setTimeout(this.player.speedX -= 2, 2000 )
+    }
+  }
 
   checkGameWon(){
     if(this.player.x >= canvas.width){
@@ -110,13 +176,4 @@ class Game{
         }
 }
 
-checkifTouched(){
-  const touched = this.bonusItems.some((bonusItem) => {
-      return this.player.touchBonus(bonusItem);
-  })
-  if(touched){
-      setInterval(this.player.speedX += 0.1, 4000)
-      setInterval(this.player.speedY += 0.1, 4000)
-  }
-}
 }

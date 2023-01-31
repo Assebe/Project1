@@ -1,9 +1,9 @@
 *{
-    font-family: fantasy;
+    font-family: rainyhearts;
 }
 
 body{
-    background-color: rgb(44, 44, 123);
+    background-color:black;
     background-size: cover;
     padding: 0;
 }
@@ -21,8 +21,12 @@ margin-top: 40px;
 {
     width: 1200px;
     height: 600px ;
-    background-image: url(/../docs/assets/images/metro.png);
+    background-image: url(/../docs/assets/images/cut.png);
     background-size: cover;
+    /* position: absolute; */
+    /* transform: translate(-50%, -50%); */
+    top: 50%;
+    left: 50%;
 
 }
 
@@ -30,9 +34,10 @@ margin-top: 40px;
 display: flex;
 align-items: center;
 align-content: center;
-margin-top: 20px;
-margin-left: 42vw;
-margin-bottom: 60px;
+text-align: center;
+margin-top: 2em;
+margin-left: 30em;
+margin-bottom: 0em;
 padding-left: 54px;
 padding-top: 10px;
 width: 200px;
@@ -40,10 +45,11 @@ height: 70px;
 background-color: rgb(56, 91, 175);
 border: 2px;
 border-radius: 7px;
-font-weight: 900;
-font-size: large;
+font-size:x-large;
 color:  white;
 }
+
+
 
 #timer{
 display: flex;
