@@ -3,30 +3,33 @@
 }
 
 body{
-    background-image: url(../docs/assets/images/dark_navy_blue_background_hd_navy_blue.jpg);
+    background-image: url('/docs/assets/images/metroPic.png');
     background-size: cover;
-    padding: 0;
 }
 
 
 #container {
+/* background-image: url('/docs/assets/images/metroPic.png'); */
 display: flex;
-align-items: center;
-margin-left: 100px;
-margin-top: 40px;
- 
+justify-content: center;
+
+}
+
+img{
+    align-items: center;
+    margin-top: 7em;
+    margin-bottom: 3em;
 }
 
 #canvas
 {
     width: 1200px;
     height: 600px ;
-/*     background-image: url(/../docs/assets/images/cut.png);
-    background-size: cover; */
     position: absolute;
     transform: translate(-50%, -50%); 
     top: 50%;
     left: 50%;
+    border-radius: 10px;
 
 }
 
@@ -35,14 +38,14 @@ margin-top: 40px;
 align-items: center;
 align-content: center;
 text-align: center;
+font-weight: bolder;
 margin-top: 2em;
-margin-left: 30em;
+margin-left: 42vw;
 margin-bottom: 0em;
-padding-left: 54px;
 padding-top: 10px;
 width: 200px;
 height: 70px;
-background-color: rgb(56, 91, 175);
+background-color: #d9e742;
 border: 2px;
 border-radius: 7px;
 font-size:x-large;
@@ -55,13 +58,13 @@ color:  white;
     align-content: center;
     text-align: center;
     margin-top: 2em;
-    margin-left: 30em;
+    margin-left: 42vw;
+    font-weight: bolder;
     margin-bottom: 0em;
-    padding-left: 54px;
     padding-top: 10px;
     width: 200px;
     height: 70px;
-    background-color: rgb(56, 91, 175);
+    background-color: #d9e742;
     border: 2px;
     border-radius: 7px;
     font-size:x-large;
@@ -70,18 +73,16 @@ color:  white;
 
 
     #easyButton {
-/*         display: flex; */
         align-items: center;
         align-content: center;
         text-align: center;
         margin-top: 2em;
-        margin-left: 30em;
-        margin-bottom: 0em;
-        padding-left: 54px;
+        margin-left: 42vw;
+        font-weight: bolder;
         padding-top: 10px;
         width: 200px;
         height: 70px;
-        background-color: rgb(56, 91, 175);
+        background-color: #d9e742;
         border: 2px;
         border-radius: 7px;
         font-size:x-large;
@@ -90,18 +91,16 @@ color:  white;
 
 
         #hardButton {
-         /*    display: flex; */
             align-items: center;
             align-content: center;
             text-align: center;
+            font-weight: bolder;
             margin-top: 2em;
-            margin-left: 30em;
-            margin-bottom: 0em;
-            padding-left: 54px;
+            margin-left: 42vw;
             padding-top: 10px;
             width: 200px;
             height: 70px;
-            background-color: rgb(56, 91, 175);
+            background-color: #d9e742;
             border: 2px;
             border-radius: 7px;
             font-size:x-large;
@@ -133,6 +132,18 @@ font-weight: 900;
     transition-duration: 0.5s;
 }
 #startButton:hover{
-    font-size: 1.6em;
     background-color: purple;
 }
+
+#chooseDifficultyButton:hover{
+    background-color: purple;
+}
+
+#easyButton:hover{
+    background-color: purple;
+}
+
+#hardButton:hover{
+    background-color: purple;
+}
+

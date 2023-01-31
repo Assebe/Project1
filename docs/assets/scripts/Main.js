@@ -5,7 +5,6 @@ const ctx  = canvas.getContext("2d");
 
 const startButton = document.getElementById("startButton")
 const chooseDifficulty = document.getElementById("chooseDifficultyButton")
-/* const easy = */
 
 const player = new Component(10, 500 - 45, 40, 40, "Image", ctx)
 
@@ -23,19 +22,38 @@ chooseDifficulty.onclick = function () {
   document.getElementById("hardButton").classList.remove("hidden")
   startButton.classList.add("hidden")
 }
+
+easyButton.onclick = function () {
+  const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player); 
+    gameEasy.start();
+    startButton.style.display = "none"
+    canvas.classList.remove("hidden")
+  };
+
+  hardButton.onclick = function () {
+    const gameHard = new GameHard(ctx, canvas.width, canvas.height, player); 
+      gameHard.start();
+      startButton.style.display = "none"
+      canvas.classList.remove("hidden")
+    };
+  
+
   
 document.addEventListener("keydown", (e) => {
     switch(e.code){
     
         case "ArrowUp":
-        if (player.y > 25) {
+        if (player.y > 15) {
             player.speedY -= 0.5;
-          } else {
-            player.speedY = 0;
-          }
+          } else player.speedY = 0;
+           
           break;
     
-        case "ArrowDown": player.speedY += 1; break;
+        case "ArrowDown":
+        if(player.y < 540) {
+        player.speedY += 0.5;}
+        else player.speedY = 0;
+         break;
 
     }
     })

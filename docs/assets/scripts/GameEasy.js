@@ -25,7 +25,7 @@ class GameEasy{
     this.frames++;
 
     if (this.scrollX >= -525){
-    this.scrollX -= 0.3
+    this.scrollX -= 0.1
   }
     this.clear();
     this.player.newPos();
@@ -75,7 +75,7 @@ class GameEasy{
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
     
-          this.enemies.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+          this.enemies.push(new Enemy(1200, randomY, 40, 60, this.ctx));
         }
       }
 
@@ -89,7 +89,7 @@ class GameEasy{
         if (this.frames % 140 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 60, this.ctx));
         }
       }
 
@@ -103,7 +103,7 @@ class GameEasy{
         if (this.frames % 140 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 60, this.ctx));
         }
       }
 
@@ -117,7 +117,7 @@ class GameEasy{
     
           let randomY = Math.floor(Math.random() * (600 - 100) + 100);
     
-          this.bonusItems.push(new BonusItem(1200, randomY, 20, 20, this.ctx));
+          this.bonusItems.push(new BonusItem(1200, randomY, 40, 40, this.ctx));
         }
       }
 
@@ -163,7 +163,7 @@ class GameEasy{
   }
 
   checkGameWon(){
-    if(this.scrollX === -525 &&  this.player.x <= canvas.width){
+    if(this.player.x >= canvas.width-30){
      ctx.font = "50px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
@@ -172,7 +172,7 @@ class GameEasy{
   }
 
   checkGameOver(){
-     if (this.frames >= 3600){
+     if (this.frames >= 3650){
      ctx.font = "32px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);

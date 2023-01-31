@@ -66,13 +66,14 @@ class BonusItem{
     this.w = w;
     this.h = h;
     this.ctx = ctx;
+    this.img = new Image();
+    this.img.src = "../docs/assets/images/bonusItems/redBullPixel.png";
   }
 
 
 
   draw(){
-    this.ctx.fillStyle = "red";
-    this.ctx.fillRect(this.x , this.y , this.w, this.h)
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
     }
 
     top(){

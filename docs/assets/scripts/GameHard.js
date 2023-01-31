@@ -11,7 +11,7 @@ class GameHard{
       this.verticalEnemiesUp = []
       this.verticalEnemiesDown = []
       this.bonusItems = []
-      this.timer = 60;
+      this.timer = 50;
       this.background = new Image ()
       this.scrollX = 0
     }
@@ -71,11 +71,11 @@ updateEnemies() {
         this.enemies[i].draw();
       }
   
-      if (this.frames % 140 == 0) {
+      if (this.frames % 90 == 0) {
   
         let randomY = Math.floor(Math.random() * (600 - 50) + 50);
   
-        this.enemies.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+        this.enemies.push(new Enemy(1200, randomY, 40, 60, this.ctx));
       }
     }
 
@@ -86,10 +86,10 @@ updateEnemies() {
         this.verticalEnemiesUp[i].draw();
       }
   
-      if (this.frames % 140 === 0) {
+      if (this.frames % 90 === 0) {
   
         let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-        this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+        this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 60, this.ctx));
       }
     }
 
@@ -100,10 +100,10 @@ updateEnemies() {
         this.verticalEnemiesDown[i].draw();
       }
   
-      if (this.frames % 140 === 0) {
+      if (this.frames % 90 === 0) {
   
         let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-        this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, this.ctx));
+        this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 60, this.ctx));
       }
     }
 
@@ -113,11 +113,11 @@ updateBonusItems() {
         this.bonusItems[i].draw();
       }
   
-      if (this.frames % 800 === 0) {
+      if (this.frames % 1000 === 0) {
   
         let randomY = Math.floor(Math.random() * (600 - 100) + 100);
   
-        this.bonusItems.push(new BonusItem(1200, randomY, 20, 20, this.ctx));
+        this.bonusItems.push(new BonusItem(1200, randomY, 40, 40, this.ctx));
       }
     }
 
@@ -163,7 +163,7 @@ checkIfTouched(){
 }
 
 checkGameWon(){
-  if(this.scrollX = -525){
+  if(this.player.x >= canvas.width-30){
    ctx.font = "50px Verdana";
    ctx.fillStyle = "red";
    ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
@@ -172,7 +172,7 @@ checkGameWon(){
 }
 
 checkGameOver(){
-   if (this.frames >= 3700){
+   if (this.frames >= 3000){
    ctx.font = "32px Verdana";
    ctx.fillStyle = "red";
    ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);
