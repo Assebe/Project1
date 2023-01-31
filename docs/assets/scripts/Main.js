@@ -2,19 +2,16 @@
 
 const canvas = document.getElementById("canvas")
 const ctx  = canvas.getContext("2d");
-/* ------------------------------ */
-
-
-
-/* --------------------- */
 
 const startButton = document.getElementById("startButton")
 
-const player = new Component(10, canvas.height/2 - 45, 40, 40, "red", ctx)
+const player = new Component(10, 500 - 45, 40, 40, "Image", ctx)
+
 
 startButton.onclick = function () {
-    const game = new Game(ctx, canvas.width, canvas.height, player);
-    game.start();
+    const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player);
+    const gameHard = new GameHard(ctx, canvas.width, canvas.height, player); 
+    gameHard.start();
   };
   
 document.addEventListener("keydown", (e) => {

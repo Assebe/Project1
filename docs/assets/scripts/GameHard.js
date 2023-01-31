@@ -1,5 +1,5 @@
 /**  @type {HTMLCanvasElement} */ 
-class Game{
+class GameHard{
     constructor(ctx, width, height, player){
         this.ctx = ctx
         this.width = width
@@ -11,7 +11,7 @@ class Game{
         this.verticalEnemiesUp = []
         this.verticalEnemiesDown = []
         this.bonusItems = []
-        this.timer = 60;
+        this.timer = 59;
       }
 
 
@@ -29,6 +29,8 @@ class Game{
     this.updateVerticalEnemiesDown();
     this.updateBonusItems();
     this.checkColision();
+    this.checkColisionUp();
+    this.checkColisionDown();
     this.checkIfTouched()
     this.checkGameWon();
     this.checkGameOver();
@@ -36,11 +38,6 @@ class Game{
     this.updateTimer();
     this.animate()
     }
-
-    animate(){
-      ctx.drawImage(backgroundImage, 0, 0)
-      requestAnimationFrame(animate);
-  }
      
     drawTimer() {
       ctx.font = "45px rainyhearts";
@@ -49,7 +46,7 @@ class Game{
     }
   
     updateTimer() {
-      if (this.frames % 40 === 0) {
+      if (this.frames % 60 === 0) {
         this.timer--;
       }
     }
@@ -68,7 +65,7 @@ class Game{
           this.enemies[i].draw();
         }
     
-        if (this.frames % 100 == 0) {
+        if (this.frames % 80 == 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
     
@@ -83,7 +80,7 @@ class Game{
           this.verticalEnemiesUp[i].draw();
         }
     
-        if (this.frames % 100 === 0) {
+        if (this.frames % 80 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
           this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
@@ -97,7 +94,7 @@ class Game{
           this.verticalEnemiesDown[i].draw();
         }
     
-        if (this.frames % 100 === 0) {
+        if (this.frames % 80 === 0) {
     
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
           this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 40, "green", this.ctx));
@@ -122,28 +119,28 @@ class Game{
         const crashedEnemies = this.enemies.some((enemy) => {
           return this.player.crashWith(enemy);
         })
-        if (crashedEnemies) {
+        if (crashedEnemies && this.player.x >= 20) {
 
-          setInterval(this.player.speedX -= 0.1, 1000)
+          this.player.x -= 10
         
         }
       }
 
       checkColisionUp() {
-            const crashedEnemies = this.verticalEnemiesUp.some((enemy) => {
+            const crashedEnemiesUp = this.verticalEnemiesUp.some((enemy) => {
               return this.player.crashWith(enemy);
             })
-            if (crashedEnemies) {
-              this.player.speedX -= 0.1
+            if (crashedEnemiesUp && this.player.x >= 20) {
+              this.player.x -= 10
             
             }
           }
           checkColisionDown() {
-                const crashedEnemies = this.verticalEnemiesDown.some((enemy) => {
+                const crashedEnemiesDown = this.verticalEnemiesDown.some((enemy) => {
                   return this.player.crashWith(enemy);
                 })
-                if (crashedEnemies) {
-                  this.player.speedX -= 0.1
+                if (crashedEnemiesDown && this.player.x >= 20) {
+                  this.player.x -= 10
                 
                 }
               }
@@ -153,8 +150,9 @@ class Game{
         return this.player.touchBonus(bonusItem);
     })
     if(touched){
-        this.player.speedX += 0.1
-        setTimeout(this.player.speedX -= 2, 2000 )
+        this.player.speedX += 0.05
+      setTimeout(() => this.player.speedX = 0.5, 2000)
+
     }
   }
 
@@ -168,7 +166,7 @@ class Game{
   }
 
   checkGameOver(){
-     if (this.frames >= 3600){
+     if (this.frames >= 3000){
      ctx.font = "32px Verdana";
      ctx.fillStyle = "red";
      ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);

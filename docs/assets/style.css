@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color:black;
+    background-image: url(../docs/assets/images/dark_navy_blue_background_hd_navy_blue.jpg);
     background-size: cover;
     padding: 0;
 }
@@ -23,8 +23,8 @@ margin-top: 40px;
     height: 600px ;
     background-image: url(/../docs/assets/images/cut.png);
     background-size: cover;
-    /* position: absolute; */
-    /* transform: translate(-50%, -50%); */
+    position: absolute;
+    transform: translate(-50%, -50%); 
     top: 50%;
     left: 50%;
 
@@ -49,6 +49,64 @@ font-size:x-large;
 color:  white;
 }
 
+#chooseDifficultyButton {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin-top: 2em;
+    margin-left: 30em;
+    margin-bottom: 0em;
+    padding-left: 54px;
+    padding-top: 10px;
+    width: 200px;
+    height: 70px;
+    background-color: rgb(56, 91, 175);
+    border: 2px;
+    border-radius: 7px;
+    font-size:x-large;
+    color:  white;
+    }
+
+
+    #easyButton {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin-top: 2em;
+        margin-left: 30em;
+        margin-bottom: 0em;
+        padding-left: 54px;
+        padding-top: 10px;
+        width: 200px;
+        height: 70px;
+        background-color: rgb(56, 91, 175);
+        border: 2px;
+        border-radius: 7px;
+        font-size:x-large;
+        color:  white;
+        }    
+
+
+        #hardButton {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+            margin-top: 2em;
+            margin-left: 30em;
+            margin-bottom: 0em;
+            padding-left: 54px;
+            padding-top: 10px;
+            width: 200px;
+            height: 70px;
+            background-color: rgb(56, 91, 175);
+            border: 2px;
+            border-radius: 7px;
+            font-size:x-large;
+            color:  white;
+            }            
 
 
 #timer{

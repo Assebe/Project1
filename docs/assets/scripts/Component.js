@@ -8,14 +8,16 @@ class Component{
     this.h= h
     this.color = color
     this.ctx= ctx
-    this.speedX = 0.5
+    this.speedX = 0.45
     this.speedY = 0  
+    this.img = new Image();
+    this.img.src = "../docs/assets/images/runningGirl.png";
+    
     }
 
     draw(){
-            this.ctx.fillStyle = this.color;
-            this.ctx.fillRect(this.x , this.y , this.w, this.h) }
-    
+      this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h); }
+   
 
     newPos(){
        this.x += this.speedX;

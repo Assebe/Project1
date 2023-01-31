@@ -1,1 +1,9 @@
-* Collision not working 
+
+
+
+
+                                START GAME
+                                
+                             CHOOSE DIFFICULTY
+
+                                HIGHSCORE
