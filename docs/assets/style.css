@@ -108,6 +108,41 @@ color:  white;
             }            
 
 
+#restartEasyButton{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: -20em;
+    margin-left: 77em;
+    width: 6em;
+    height: 2.5em;
+    background-color: #d9e742;
+    border: 2px;
+    border-radius: 3px;
+    font-size: medium;
+    color:  black;
+    position: absolute;
+}
+
+#restartHardButton{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: -20em;
+    margin-left: 77em;
+    width: 6em;
+    height: 2em;
+    background-color: #d9e742;
+    border: 2px;
+    border-radius: 3px;
+    font-size: medium;
+    color:  black;
+    position: absolute;
+}
+
+
 #timer{
 display: flex;
 color: red;

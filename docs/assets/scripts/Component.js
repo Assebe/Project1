@@ -95,7 +95,7 @@ class BonusItem{
 
 
 class Enemy {
-    constructor(x, y, w, h, ctx) {
+    constructor(img, x, y, w, h, ctx) {
       this.x = x;
       this.y = y;
       this.w = w;
@@ -103,15 +103,16 @@ class Enemy {
       this.ctx = ctx;
       this.speedX = 0;
       this.speedY = 0;
-      this.img = new Image();
-      this.img.src = "../docs/assets/images/Enemies/person2-NoBG.png";
+      this.img = img
     }
   
   draw() {
+    /* console.log(typeof this.img5[this.images5]) */
+    /* this.img5 = this.images5[Math.floor(Math.random()*this.images5.length)] */
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
     }
   
-    top(){
+  top(){
       return this.y;
   }
 

@@ -14,6 +14,13 @@ class GameEasy{
         this.timer = 60;
         this.background = new Image ()
         this.scrollX = 0
+        const img1 = new Image();
+        const img2 = new Image();
+        const img3 = new Image();
+        img1.src = "../docs/assets/images/Enemies/Ash-NoBg.png";
+        img2.src = "../docs/assets/images/Enemies/ashFriend-NoBg.png";
+        img3.src = "../docs/assets/images/Enemies/Doc-NoBg.png";
+        this.images5 = [img1, img2, img3]
       }
 
 
@@ -26,8 +33,9 @@ class GameEasy{
 
     if (this.scrollX >= -525){
     this.scrollX -= 0.1
-  }
-    this.clear();
+  } 
+  
+    this.clear(); 
     this.player.newPos();
     this.player.draw();
     this.updateEnemies();
@@ -42,12 +50,12 @@ class GameEasy{
     this.checkGameOver();
     this.drawTimer();
     this.updateTimer();
-    }
+  }
      
     drawTimer() {
       ctx.font = "45px rainyhearts";
-      ctx.fillStyle = "white"
-      ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 80, 30);
+      ctx.fillStyle = "limegreen"
+      ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 70, 55);
     }
   
     updateTimer() {
@@ -72,13 +80,13 @@ class GameEasy{
         }
     
         if (this.frames % 140 == 0) {
-    
+
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-    
-          this.enemies.push(new Enemy(1200, randomY, 40, 60, this.ctx));
+          let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
+          
+          this.enemies.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
         }
       }
-
       updateVerticalEnemiesUp() {
         for (let i = 0; i < this.verticalEnemiesUp.length; i++) {
           this.verticalEnemiesUp[i].x -= 3;
@@ -87,9 +95,10 @@ class GameEasy{
         }
     
         if (this.frames % 140 === 0) {
-    
+          let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 60, this.ctx));
+          this.verticalEnemiesUp.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
+          
         }
       }
 
@@ -101,9 +110,9 @@ class GameEasy{
         }
     
         if (this.frames % 140 === 0) {
-    
+          let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
           let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-          this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 60, this.ctx));
+          this.verticalEnemiesDown.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
         }
       }
 
@@ -164,8 +173,10 @@ class GameEasy{
 
   checkGameWon(){
     if(this.player.x >= canvas.width-30){
-     ctx.font = "50px Verdana";
-     ctx.fillStyle = "red";
+     ctx.fillStyle = "black";
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+     ctx.font = "50px Courier New";
+     ctx.fillStyle = "limegreen";
      ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
      this.stop()
     }
@@ -173,9 +184,11 @@ class GameEasy{
 
   checkGameOver(){
      if (this.frames >= 3650){
-     ctx.font = "32px Verdana";
+     ctx.fillStyle = "dimgrey";
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+     ctx.font = "50px Courier New";
      ctx.fillStyle = "red";
-     ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);
+     ctx.fillText(`The train left without you...`, canvas.width/2 -100, canvas.height/2);
      this.stop()
         }
 }

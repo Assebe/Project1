@@ -46,8 +46,8 @@ update = () => {
    
   drawTimer() {
     ctx.font = "45px rainyhearts";
-    ctx.fillStyle = "white"
-    ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 80, 30);
+    ctx.fillStyle = "limegreen"
+    ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 70, 55);
   }
 
   updateTimer() {
@@ -164,8 +164,10 @@ checkIfTouched(){
 
 checkGameWon(){
   if(this.player.x >= canvas.width-30){
-   ctx.font = "50px Verdana";
-   ctx.fillStyle = "red";
+   ctx.fillStyle = "black";
+   ctx.fillRect(0, 0, canvas.width, canvas.height);
+   ctx.font = "50px Courier New";
+   ctx.fillStyle = "limegreen";
    ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
    this.stop()
   }
@@ -173,9 +175,11 @@ checkGameWon(){
 
 checkGameOver(){
    if (this.frames >= 3000){
-   ctx.font = "32px Verdana";
-   ctx.fillStyle = "red";
-   ctx.fillText(`Game Over, train left :(`, canvas.width/2 -100, canvas.height/2);
+   ctx.fillStyle = "black";
+   ctx.fillRect(0, 0, canvas.width, canvas.height);
+   ctx.font = "50px Courier New";
+   ctx.fillStyle = "limegreen";
+   ctx.fillText(`The train left without you...`, canvas.width/2 -100, canvas.height/2);
    this.stop()
       }
 }
