@@ -5,13 +5,15 @@
 body{
     background-image: url('/docs/assets/images/metroPic.png');
     background-size: cover;
+    height: 100vh;
 }
 
 
 #container {
-/* background-image: url('/docs/assets/images/metroPic.png'); */
 display: flex;
 justify-content: center;
+align-items: center;
+
 
 }
 
@@ -34,7 +36,6 @@ img{
 }
 
 #startButton {
-/* display: flex; */
 align-items: center;
 align-content: center;
 text-align: center;
@@ -72,12 +73,18 @@ color:  white;
     }
 
 
+    #difficultyButtons{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
     #easyButton {
         align-items: center;
         align-content: center;
         text-align: center;
         margin-top: 2em;
-        margin-left: 42vw;
+        margin-left: 25em;
         font-weight: bolder;
         padding-top: 10px;
         width: 200px;
@@ -96,7 +103,7 @@ color:  white;
             text-align: center;
             font-weight: bolder;
             margin-top: 2em;
-            margin-left: 42vw;
+            margin-left: 25em;
             padding-top: 10px;
             width: 200px;
             height: 70px;
@@ -113,7 +120,7 @@ color:  white;
     align-content: center;
     text-align: center;
     font-weight: bolder;
-    margin-top: -20em;
+    margin-bottom: 50vh;
     margin-left: 77em;
     width: 6em;
     height: 2.5em;
@@ -181,4 +188,13 @@ font-weight: 900;
 #hardButton:hover{
     background-color: purple;
 }
+
+#restartEasyButton:hover{
+    background-color: purple;
+}
+
+#restartHardButton:hover{
+    background-color: purple;
+}
+
 

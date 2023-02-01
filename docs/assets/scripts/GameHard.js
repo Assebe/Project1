@@ -14,6 +14,13 @@ class GameHard{
       this.timer = 50;
       this.background = new Image ()
       this.scrollX = 0
+      const img1 = new Image();
+      const img2 = new Image();
+      const img3 = new Image();
+      img1.src = "../docs/assets/images/Enemies/Ash-NoBg.png";
+      img2.src = "../docs/assets/images/Enemies/ashFriend-NoBg.png";
+      img3.src = "../docs/assets/images/Enemies/Doc-NoBg.png";
+      this.images5 = [img1, img2, img3]
     }
 
 
@@ -21,27 +28,26 @@ start(){
   this.isIntervalID = setInterval(this.update, 1000/60)
   }
 
-update = () => {
-  this.frames++;
+  update = () => {
+    this.frames++;
 
-  if (this.scrollX >= -525){
-  this.scrollX -= 0.3
-}
-  this.clear();
-  this.player.newPos();
-  this.player.draw();
-  this.updateEnemies();
-  this.updateVerticalEnemiesUp();
-  this.updateVerticalEnemiesDown();
-  this.updateBonusItems();
-  this.checkColision();
-  this.checkColisionUp();
-  this.checkColisionDown();
-  this.checkIfTouched()
-  this.checkGameWon();
-  this.checkGameOver();
-  this.drawTimer();
-  this.updateTimer();
+    if (this.scrollX >= -525){
+    this.scrollX -= 0.1} 
+    this.clear(); 
+    this.player.newPos();
+    this.player.draw();
+    this.updateEnemies();
+    this.updateVerticalEnemiesUp();
+    this.updateVerticalEnemiesDown();
+    this.updateBonusItems();
+    this.checkColision();
+    this.checkColisionUp();
+    this.checkColisionDown();
+    this.checkIfTouched()
+    this.checkGameWon();
+    this.checkGameOver();
+    this.drawTimer();
+    this.updateTimer();
   }
    
   drawTimer() {
@@ -65,47 +71,48 @@ clear(){
       this.ctx.drawImage(this.background, this.scrollX, 0, 1725, 600) 
   }
 
-updateEnemies() {
-      for (let i = 0; i < this.enemies.length; i++) {
-        this.enemies[i].x -= 3;
-        this.enemies[i].draw();
-      }
-  
-      if (this.frames % 90 == 0) {
-  
-        let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-  
-        this.enemies.push(new Enemy(1200, randomY, 40, 60, this.ctx));
-      }
+  updateEnemies() {
+    for (let i = 0; i < this.enemies.length; i++) {
+      this.enemies[i].x -= 3;
+      this.enemies[i].draw();
     }
 
-    updateVerticalEnemiesUp() {
-      for (let i = 0; i < this.verticalEnemiesUp.length; i++) {
-        this.verticalEnemiesUp[i].x -= 3;
-        this.verticalEnemiesUp[i].y += 0.5;
-        this.verticalEnemiesUp[i].draw();
-      }
-  
-      if (this.frames % 90 === 0) {
-  
-        let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-        this.verticalEnemiesUp.push(new Enemy(1200, randomY, 40, 60, this.ctx));
-      }
+    if (this.frames % 80 == 0) {
+
+      let randomY = Math.floor(Math.random() * (600 - 50) + 50);
+      let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
+      
+      this.enemies.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
+    }
+  }
+  updateVerticalEnemiesUp() {
+    for (let i = 0; i < this.verticalEnemiesUp.length; i++) {
+      this.verticalEnemiesUp[i].x -= 3;
+      this.verticalEnemiesUp[i].y += 0.5;
+      this.verticalEnemiesUp[i].draw();
     }
 
-    updateVerticalEnemiesDown() {
-      for (let i = 0; i < this.verticalEnemiesDown.length; i++) {
-        this.verticalEnemiesDown[i].x -= 3;
-        this.verticalEnemiesDown[i].y -= 0.5;
-        this.verticalEnemiesDown[i].draw();
-      }
-  
-      if (this.frames % 90 === 0) {
-  
-        let randomY = Math.floor(Math.random() * (600 - 50) + 50);
-        this.verticalEnemiesDown.push(new Enemy(1200, randomY, 40, 60, this.ctx));
-      }
+    if (this.frames % 80 === 0) {
+      let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
+      let randomY = Math.floor(Math.random() * (600 - 50) + 50);
+      this.verticalEnemiesUp.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
+      
     }
+  }
+
+  updateVerticalEnemiesDown() {
+    for (let i = 0; i < this.verticalEnemiesDown.length; i++) {
+      this.verticalEnemiesDown[i].x -= 3;
+      this.verticalEnemiesDown[i].y -= 0.5;
+      this.verticalEnemiesDown[i].draw();
+    }
+
+    if (this.frames % 80 === 0) {
+      let randomImg = this.images5[Math.floor(Math.random() * this.images5.length)]
+      let randomY = Math.floor(Math.random() * (600 - 50) + 50);
+      this.verticalEnemiesDown.push(new Enemy(randomImg, 1200, randomY, 40, 60, this.ctx));
+    }
+  }
 
 updateBonusItems() {
       for (let i = 0; i < this.bonusItems.length; i++) {
@@ -183,5 +190,4 @@ checkGameOver(){
    this.stop()
       }
 }
-
 }

@@ -11,12 +11,14 @@ class Component{
     this.speedX = 0.45
     this.speedY = 0  
     this.img = new Image();
-    this.img.src = "../docs/assets/images/runningGirl.png";
+    this.img.src = "../docs/assets/images/playerSprite.png";
+    this.dx = 0
+    this.dy = 0
     
     }
 
-    draw(){
-      this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h); }
+    draw(){  
+      this.ctx.drawImage(this.img, this.dx, this.dy, 63, 58, this.x, this.y, this.w, this.h) }
    
 
     newPos(){
@@ -107,8 +109,6 @@ class Enemy {
     }
   
   draw() {
-    /* console.log(typeof this.img5[this.images5]) */
-    /* this.img5 = this.images5[Math.floor(Math.random()*this.images5.length)] */
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
     }
   
@@ -126,5 +126,4 @@ class Enemy {
   right(){
       return this.x + this.w
   }
-
   }

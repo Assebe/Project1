@@ -8,7 +8,7 @@ const chooseDifficulty = document.getElementById("chooseDifficultyButton")
 const restartEasy = document.getElementById("restartEasyButton")
 const restartHard = document.getElementById("restartHardButton")
 
-const player = new Component(10, 500 - 45, 50, 50, "Image", ctx)
+const player = new Component(10, 500 - 45, 50, 60, "Image", ctx)
 
 
 startButton.onclick = function () {
@@ -16,8 +16,6 @@ startButton.onclick = function () {
     gameEasy.start();
     startButton.style.display = "none"
     canvas.classList.remove("hidden")
-    restartEasy.classList.remove("hidden")
-
   };
 
 chooseDifficulty.onclick = function () {
@@ -29,7 +27,7 @@ chooseDifficulty.onclick = function () {
 
 easyButton.onclick = function () {
   const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player); 
-    gameEasy.start();
+      gameEasy.start();
     startButton.style.display = "none"
     canvas.classList.remove("hidden")
     restartEasy.classList.remove("hidden")
@@ -43,21 +41,14 @@ easyButton.onclick = function () {
     canvas.classList.remove("hidden")
     };
 
- restartEasy.onclick = function () {
-    gameEasy.stop()
-    gameEasy.clear()
-    const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player); 
+ restartEasy.onclick = function () { 
+    const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player);  
     gameEasy.start();
-    document.getElementById("restartEasyButton").classList.remove("hidden")
-
 }
 
 restartHard.onclick = function () {
-  gameHard.stop()
-  gameHard.clear()
   const gameHard = new GameHard(ctx, canvas.width, canvas.height, player); 
   gameHard.start();
-  document.getElementById("restartHardButton").classList.remove("hidden")
 
 }
   

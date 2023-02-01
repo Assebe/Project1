@@ -21,20 +21,33 @@ class GameEasy{
         img2.src = "../docs/assets/images/Enemies/ashFriend-NoBg.png";
         img3.src = "../docs/assets/images/Enemies/Doc-NoBg.png";
         this.images5 = [img1, img2, img3]
+        this.isIntervalSpriteID
       }
+      
 
 
  start(){
     this.isIntervalID = setInterval(this.update, 1000/60)
+    this.isIntervalSpriteID = setInterval(this.updateSprite, 1000/15)
+    this.enemies=[]
+    this.verticalEnemiesUp = []
+    this.verticalEnemiesDown = []
+    this.scrollX = 0
+    this.bonusItems = []
+    this.timer = 60;
+    }
+
+    restart(){
+      this.stop()
+      this.clear()
+      this.start()
     }
 
  update = () => {
     this.frames++;
 
     if (this.scrollX >= -525){
-    this.scrollX -= 0.1
-  } 
-  
+    this.scrollX -= 0.1} 
     this.clear(); 
     this.player.newPos();
     this.player.draw();
@@ -50,6 +63,15 @@ class GameEasy{
     this.checkGameOver();
     this.drawTimer();
     this.updateTimer();
+  }
+
+  updateSprite = () => {
+    if (this.player.dx > 415){
+      this.player.dx = 0
+    }
+    else {
+      this.player.dx += 63
+    }
   }
      
     drawTimer() {
@@ -166,7 +188,13 @@ class GameEasy{
     })
     if(touched){
         this.player.speedX += 0.05
+        for(let i =0; i < this.bonusItems.length; i++){
+          this.bonusItems.splice(i,1)
+
+        }
       setTimeout(() => this.player.speedX = 0.5, 2000)
+
+      /* make bonuses disappear */
 
     }
   }
@@ -175,22 +203,25 @@ class GameEasy{
     if(this.player.x >= canvas.width-30){
      ctx.fillStyle = "black";
      ctx.fillRect(0, 0, canvas.width, canvas.height);
-     ctx.font = "50px Courier New";
+     ctx.font = "30px rainyheart";
      ctx.fillStyle = "limegreen";
-     ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
+     ctx.fillText(`You catched the metro! You'll be on IronClass on time!`, canvas.width/2 -200, canvas.height/2);
      this.stop()
+     
     }
   }
 
   checkGameOver(){
      if (this.frames >= 3650){
      ctx.fillStyle = "dimgrey";
-     ctx.fillRect(0, 0, canvas.width, canvas.height);
+     ctx.fillRect(0, 0, canvas.width/2 -200, canvas.height);
      ctx.font = "50px Courier New";
      ctx.fillStyle = "red";
-     ctx.fillText(`The train left without you...`, canvas.width/2 -100, canvas.height/2);
+     ctx.fillText(`THE METRO LEFT WITHOUT YOU... YOU'LL BE LATE TO YOUR IRONCLASS!!`, canvas.width/2 -200, canvas.height/2);
      this.stop()
+     ctx.restartEasy.classList.remove("hidden")
         }
 }
 
 }
+
