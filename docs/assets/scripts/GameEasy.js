@@ -185,19 +185,22 @@ class GameEasy{
   checkIfTouched(){
     const touched = this.bonusItems.some((bonusItem) => {
         return this.player.touchBonus(bonusItem);
+
+        
     })
     if(touched){
-        this.player.speedX += 0.05
-        for(let i =0; i < this.bonusItems.length; i++){
-          this.bonusItems.splice(i,1)
 
-        }
-      setTimeout(() => this.player.speedX = 0.5, 2000)
+        this.player.speedX += 0.05 //player speeds up
 
-      /* make bonuses disappear */
+        setTimeout(() => this.player.speedX = 0.5, 2000)// gets to regular speed after 2 seconds
 
-    }
+
+        // manking bonus desappear:
+        //using setTimeout because if outside it, the code will remove the bonus without performing code on line 193-195 
+        for (let i =0; i < this.bonusItems.length; i++){
+                 setTimeout(() => this.bonusItems.splice(i,1) , 500)}
   }
+}
 
   checkGameWon(){
     if(this.player.x >= canvas.width-30){
@@ -221,7 +224,6 @@ class GameEasy{
      this.stop()
      ctx.restartEasy.classList.remove("hidden")
         }
-}
-
+ }
 }
 
