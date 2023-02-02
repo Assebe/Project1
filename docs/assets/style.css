@@ -142,7 +142,7 @@ cursor: grab;
     color:  white;
     position: absolute;
     transform: translate(-50%, -50%); 
-    top: 65%;
+    top: 82%;
     left: 50%;
     animation: glowing 1300ms infinite;
     cursor: grab;
@@ -159,7 +159,7 @@ cursor: grab;
     color:  white;
     position: absolute;
     transform: translate(-50%, -50%); 
-    top: 65%;
+    top: 82%;
     left: 50%;
     animation: glowing 1300ms infinite;
     cursor: grab;
@@ -231,4 +231,17 @@ font-weight: 900;
     }
   }
 
-  
+.winning{
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    top: 42%;
+    left: 50%;
+}
+.loosing{
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    top: 42%;
+    left: 50%;
+    height: 200px;
+    width: 200px;
+}

@@ -8,6 +8,8 @@ const chooseDifficulty = document.getElementById("chooseDifficultyButton")
 const restartEasy = document.getElementById("restartEasyButton")
 const restartHard = document.getElementById("restartHardButton")
 const instructions = document.getElementById("instructions")
+const winningGif = document.getElementById("winning-gif") 
+const loosingGif = document.getElementById("loosing-gif") 
 
 const player = new Component(10, 500 - 45, 50, 60, "Image", ctx)
 

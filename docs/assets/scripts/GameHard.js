@@ -191,9 +191,10 @@ checkGameWon(){
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = "40px VT323";
     ctx.fillStyle = "limegreen";
-    ctx.fillText(`You caught the Metro! You'll make it to IronClass on time!`, 90, canvas.height/2);
-    this.stop()
-   restartHard.classList.remove("hidden")
+    ctx.fillText(`You caught the Metro! You'll make it on time to IronClass!`, 120, canvas.height/3.2);
+     this.stop()
+     restartEasy.classList.remove("hidden")
+     winningGif.style.display="inline"
   }
 }
 
@@ -203,10 +204,10 @@ checkGameOver(){
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = "40px VT323";
     ctx.fillStyle = "red";
-    ctx.fillText(`💀 The Metro left without you, you'll be late for IronClass! 💀`, 90, canvas.height/2);
+    ctx.fillText(`💀 The Metro left without you, you'll be late for IronClass! 💀`, 90, canvas.height/3.2);
    this.stop()
    restartHard.classList.remove("hidden")
-
+   loosingGif.style.display="inline"
       }
 }
 }
