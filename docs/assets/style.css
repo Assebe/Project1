@@ -5,11 +5,11 @@
 
 @font-face {
     font-family: rainyhearts;
-    src: url('./docs/rainyhearts.ttf');
+    src: url('docs/rainyhearts.ttf');
   }
 
 body{
-    background-image: url('./docs/assets/images/metroPic.png');
+    background-image: url('docs/assets/images/metroPic.png');
     background-size: cover;
     margin: 0%;
     padding: 0%;

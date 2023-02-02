@@ -11,7 +11,7 @@ class Component{
     this.speedX = 0.45
     this.speedY = 0  
     this.img = new Image();
-    this.img.src = "./docs/assets/images/playerSprite.png";
+    this.img.src = "docs/assets/images/playerSprite.png";
     this.dx = 0
     this.dy = 0
     
@@ -69,7 +69,7 @@ class BonusItem{
     this.h = h;
     this.ctx = ctx;
     this.img = new Image();
-    this.img.src = "./docs/assets/images/bonusItems/redBullPixel.png";
+    this.img.src = "docs/assets/images/bonusItems/redBullPixel.png";
   }
 
 

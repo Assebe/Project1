@@ -17,9 +17,9 @@ class GameEasy{
         const img1 = new Image();
         const img2 = new Image();
         const img3 = new Image();
-        img1.src = "../docs/assets/images/Enemies/Ash-NoBg.png";
-        img2.src = "../docs/assets/images/Enemies/ashFriend-NoBg.png";
-        img3.src = "../docs/assets/images/Enemies/Doc-NoBg.png";
+        img1.src = "docs/assets/images/Enemies/Ash-NoBg.png";
+        img2.src = "docs/assets/images/Enemies/ashFriend-NoBg.png";
+        img3.src = "docs/assets/images/Enemies/Doc-NoBg.png";
         this.images5 = [img1, img2, img3]
         this.isIntervalSpriteID
       }
@@ -89,7 +89,7 @@ class GameEasy{
       }
 
  clear(){    
-       this.background.src = "../docs/assets/images/metro.png"
+       this.background.src = "docs/assets/images/metro.png"
         this.ctx.drawImage(this.background, this.scrollX, 0, 1725, 600) 
     }
 
