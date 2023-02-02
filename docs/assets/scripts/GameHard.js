@@ -52,7 +52,7 @@ start(){
   }
    
   drawTimer() {
-    ctx.font = "45px rainyhearts";
+    ctx.font = "45px VT323";
     ctx.fillStyle = "limegreen"
     ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 70, 55);
   }
