@@ -16,6 +16,7 @@ startButton.onclick = function () {
     const gameEasy = new GameEasy(ctx, canvas.width, canvas.height, player); 
     gameEasy.start();
     startButton.style.display = "none"
+    chooseDifficulty.style.display = "none"
     canvas.classList.remove("hidden")
   };
 

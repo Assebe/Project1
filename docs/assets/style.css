@@ -10,7 +10,8 @@
 
 body{
     background-image: url('https://res.cloudinary.com/dh6idmfth/image/upload/v1675350644/Project1/1a6b829c-2aa3-43f9-9f09-b9618411b8d2_t2odru.jpg');
-    background-size: cover;
+    background-size:cover;
+    background-repeat:no-repeat;
     margin: 0%;
     padding: 0%;
 }
@@ -66,7 +67,6 @@ cursor: grab;
 
 
 #chooseDifficultyButton {
-    display: flex;
     align-items: center;
     align-content: center;
     text-align: center;
@@ -74,7 +74,6 @@ cursor: grab;
     margin-left: 42vw;
     font-weight: bolder;
     margin-bottom: 0em;
-    padding-top: 10px;
     width: 200px;
     height: 70px;
     background-color: #d9e742;
@@ -172,7 +171,6 @@ display: flex;
 color: red;
 font-size: x-large;
 font-weight: 900;
-
 }
 
 .hidden{
@@ -232,3 +230,5 @@ font-weight: 900;
       box-shadow: 0 0 3px #2ba805;
     }
   }
+
+  
