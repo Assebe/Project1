@@ -73,7 +73,7 @@ class GameEasy{
   }
      
     drawTimer() {
-      ctx.font = "45px rainyhearts";
+      ctx.font = "45px VT323";
       ctx.fillStyle = "limegreen"
       ctx.fillText(`METRO LEAVES IN: ${this.timer} SEC`, 70, 55);
     }
@@ -204,7 +204,7 @@ class GameEasy{
      ctx.fillRect(0, 0, canvas.width, canvas.height);
      ctx.font = "40px VT323";
      ctx.fillStyle = "limegreen";
-     ctx.fillText(`You caught the Metro! You'll make it to IronClass on time!`, 90, canvas.height/2);
+     ctx.fillText(`You caught the Metro! You'll make it on time to IronClass!`, 90, canvas.height/2);
      this.stop()
      restartEasy.classList.remove("hidden")
      
@@ -212,7 +212,7 @@ class GameEasy{
   }
 
   checkGameOver(){
-     if (this.frames <= 3650){
+     if (this.frames >= 3650){
      ctx.fillStyle = "black";
      ctx.fillRect(0, 0, canvas.width, canvas.height);
      ctx.font = "40px VT323";
