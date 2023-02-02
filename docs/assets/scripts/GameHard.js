@@ -21,16 +21,17 @@ class GameHard{
       img2.src = "../docs/assets/images/Enemies/ashFriend-NoBg.png";
       img3.src = "../docs/assets/images/Enemies/Doc-NoBg.png";
       this.images5 = [img1, img2, img3]
+      this.isIntervalSpriteID
     }
 
 
 start(){
   this.isIntervalID = setInterval(this.update, 1000/60)
+  this.isIntervalSpriteID = setInterval(this.updateSprite, 1000/15)
   }
 
   update = () => {
     this.frames++;
-
     if (this.scrollX >= -525){
     this.scrollX -= 0.1} 
     this.clear(); 
@@ -59,6 +60,15 @@ start(){
   updateTimer() {
     if (this.frames % 60 === 0) {
       this.timer--;
+    }
+  }
+
+  updateSprite = () => { // update just for the sprite so it runs slower than if it was inside the update() 
+    if (this.player.dx > 415){
+      this.player.dx = 0
+    }
+    else {
+      this.player.dx += 63
     }
   }
 
@@ -114,19 +124,19 @@ clear(){
     }
   }
 
-updateBonusItems() {
-      for (let i = 0; i < this.bonusItems.length; i++) {
-        this.bonusItems[i].x -= 1;
-        this.bonusItems[i].draw();
-      }
-  
-      if (this.frames % 1000 === 0) {
-  
-        let randomY = Math.floor(Math.random() * (600 - 100) + 100);
-  
-        this.bonusItems.push(new BonusItem(1200, randomY, 40, 40, this.ctx));
-      }
+  updateBonusItems() {
+    for (let i = 0; i < this.bonusItems.length; i++) {
+      this.bonusItems[i].x -= 1;
+      this.bonusItems[i].draw();
     }
+
+    if (this.frames % 1100 === 0) {
+
+      let randomY = Math.floor(Math.random() * (600 - 100) + 100);
+
+      this.bonusItems.push(new BonusItem(1200, randomY, 40, 40, this.ctx));
+    }
+  }
 
 checkColision() {
       const crashedEnemies = this.enemies.some((enemy) => {
@@ -158,36 +168,45 @@ checkColision() {
               }
             }
   
-checkIfTouched(){
-  const touched = this.bonusItems.some((bonusItem) => {
-      return this.player.touchBonus(bonusItem);
-  })
-  if(touched){
-      this.player.speedX += 0.05
-    setTimeout(() => this.player.speedX = 0.5, 2000)
-
-  }
-}
+            checkIfTouched(){
+              const touched = this.bonusItems.some((bonusItem) => {
+                  return this.player.touchBonus(bonusItem);
+              })
+              if(touched){
+          
+                  this.player.speedX += 0.05 
+          
+                  setTimeout(() => this.player.speedX = 0.5, 2000)
+          
+          
+                  
+                  for (let i =0; i < this.bonusItems.length; i++){
+                           setTimeout(() => this.bonusItems.splice(i,1) , 500)}
+            }
+          }
 
 checkGameWon(){
   if(this.player.x >= canvas.width-30){
-   ctx.fillStyle = "black";
-   ctx.fillRect(0, 0, canvas.width, canvas.height);
-   ctx.font = "50px Courier New";
-   ctx.fillStyle = "limegreen";
-   ctx.fillText(`You made it!`, canvas.width/2 -100, canvas.height/2);
-   this.stop()
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "40px VT323";
+    ctx.fillStyle = "limegreen";
+    ctx.fillText(`You caught the Metro! You'll make it to IronClass on time!`, 90, canvas.height/2);
+    this.stop()
+   restartHard.classList.remove("hidden")
   }
 }
 
 checkGameOver(){
-   if (this.frames >= 3000){
-   ctx.fillStyle = "black";
-   ctx.fillRect(0, 0, canvas.width, canvas.height);
-   ctx.font = "50px Courier New";
-   ctx.fillStyle = "limegreen";
-   ctx.fillText(`The train left without you...`, canvas.width/2 -100, canvas.height/2);
+   if (this.frames >= 3050){
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "40px VT323";
+    ctx.fillStyle = "red";
+    ctx.fillText(`💀 The Metro left without you, you'll be late for IronClass! 💀`, 90, canvas.height/2);
    this.stop()
+   restartHard.classList.remove("hidden")
+
       }
 }
 }

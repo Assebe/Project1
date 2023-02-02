@@ -25,7 +25,6 @@ class GameEasy{
       }
       
 
-
  start(){
     this.isIntervalID = setInterval(this.update, 1000/60)
     this.isIntervalSpriteID = setInterval(this.updateSprite, 1000/15)
@@ -45,7 +44,6 @@ class GameEasy{
 
  update = () => {
     this.frames++;
-
     if (this.scrollX >= -525){
     this.scrollX -= 0.1} 
     this.clear(); 
@@ -65,7 +63,7 @@ class GameEasy{
     this.updateTimer();
   }
 
-  updateSprite = () => {
+  updateSprite = () => { // made an update just for the sprite so it runs slower than if it was inside the update() 
     if (this.player.dx > 415){
       this.player.dx = 0
     }
@@ -185,8 +183,6 @@ class GameEasy{
   checkIfTouched(){
     const touched = this.bonusItems.some((bonusItem) => {
         return this.player.touchBonus(bonusItem);
-
-        
     })
     if(touched){
 
@@ -206,23 +202,24 @@ class GameEasy{
     if(this.player.x >= canvas.width-30){
      ctx.fillStyle = "black";
      ctx.fillRect(0, 0, canvas.width, canvas.height);
-     ctx.font = "30px rainyheart";
+     ctx.font = "40px VT323";
      ctx.fillStyle = "limegreen";
-     ctx.fillText(`You catched the metro! You'll be on IronClass on time!`, canvas.width/2 -200, canvas.height/2);
+     ctx.fillText(`You caught the Metro! You'll make it to IronClass on time!`, 90, canvas.height/2);
      this.stop()
+     restartEasy.classList.remove("hidden")
      
     }
   }
 
   checkGameOver(){
-     if (this.frames >= 3650){
-     ctx.fillStyle = "dimgrey";
-     ctx.fillRect(0, 0, canvas.width/2 -200, canvas.height);
-     ctx.font = "50px Courier New";
+     if (this.frames <= 3650){
+     ctx.fillStyle = "black";
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+     ctx.font = "40px VT323";
      ctx.fillStyle = "red";
-     ctx.fillText(`THE METRO LEFT WITHOUT YOU... YOU'LL BE LATE TO YOUR IRONCLASS!!`, canvas.width/2 -200, canvas.height/2);
+     ctx.fillText(`💀 The Metro left without you, you'll be late for IronClass! 💀`, 90, canvas.height/2);
      this.stop()
-     ctx.restartEasy.classList.remove("hidden")
+     restartEasy.classList.remove("hidden")
         }
  }
 }

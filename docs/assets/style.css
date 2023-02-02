@@ -1,11 +1,18 @@
 *{
-    font-family: rainyhearts;
+    font-family: rainyhearts, VT323;
 }
+
+
+@font-face {
+    font-family: rainyhearts;
+    src: url('/docs/rainyhearts.ttf');
+  }
 
 body{
     background-image: url('/docs/assets/images/metroPic.png');
     background-size: cover;
-    height: 100vh;
+    margin: 0%;
+    padding: 0%;
 }
 
 
@@ -32,6 +39,7 @@ img{
     top: 50%;
     left: 50%;
     border-radius: 10px;
+    font-family: rainyhearts, VT323;
 
 }
 
@@ -51,7 +59,11 @@ border: 2px;
 border-radius: 7px;
 font-size:x-large;
 color:  white;
+transition-duration: 0.8s;
+cursor: grab;
 }
+
+
 
 #chooseDifficultyButton {
     display: flex;
@@ -70,21 +82,24 @@ color:  white;
     border-radius: 7px;
     font-size:x-large;
     color:  white;
+    transition-duration: 0.8s;
+    cursor: grab;
     }
-
 
     #difficultyButtons{
         display: flex;
         flex-wrap: wrap;
-
+        transform: translate(0%, 0%); 
+        top: 50%;
+        left: 50%;
+        cursor: grab;
+        
     }
 
     #easyButton {
-        align-items: center;
-        align-content: center;
         text-align: center;
         margin-top: 2em;
-        margin-left: 25em;
+        margin-left: 42.5%;
         font-weight: bolder;
         padding-top: 10px;
         width: 200px;
@@ -94,16 +109,16 @@ color:  white;
         border-radius: 7px;
         font-size:x-large;
         color:  white;
+        transition-duration: 0.8s;
+        cursor: grab;
         }    
 
 
         #hardButton {
-            align-items: center;
-            align-content: center;
             text-align: center;
             font-weight: bolder;
             margin-top: 2em;
-            margin-left: 25em;
+            margin-left: 42.5%;
             padding-top: 10px;
             width: 200px;
             height: 70px;
@@ -112,41 +127,43 @@ color:  white;
             border-radius: 7px;
             font-size:x-large;
             color:  white;
+            transition-duration: 0.8s;
+            cursor: grab;
             }            
 
 
 #restartEasyButton{
-    align-items: center;
-    align-content: center;
-    text-align: center;
     font-weight: bolder;
-    margin-bottom: 50vh;
-    margin-left: 77em;
-    width: 6em;
-    height: 2.5em;
+    width: 12em;
+    height: 3em;
     background-color: #d9e742;
     border: 2px;
-    border-radius: 3px;
-    font-size: medium;
-    color:  black;
+    border-radius: 15px;
+    font-size: x-large;
+    color:  white;
     position: absolute;
+    transform: translate(-50%, -50%); 
+    top: 65%;
+    left: 50%;
+    animation: glowing 1300ms infinite;
+    cursor: grab;
 }
 
 #restartHardButton{
-    align-items: center;
-    align-content: center;
-    text-align: center;
     font-weight: bolder;
-    margin-top: -20em;
-    margin-left: 77em;
-    width: 6em;
-    height: 2em;
+    width: 12em;
+    height: 3em;
     background-color: #d9e742;
     border: 2px;
-    border-radius: 3px;
-    font-size: medium;
-    color:  black;
+    border-radius: 15px;
+    font-size: x-large;
+    color:  white;
     position: absolute;
+    transform: translate(-50%, -50%); 
+    top: 65%;
+    left: 50%;
+    animation: glowing 1300ms infinite;
+    cursor: grab;
 }
 
 
@@ -171,7 +188,7 @@ font-weight: 900;
 }
 
 #startButton{
-    transition-duration: 0.5s;
+    transition-duration: 0.8s; /* TO DO:  ADD THIS FEATURE TO THE BELLOW BUTTONS LIST  */
 }
 #startButton:hover{
     background-color: purple;
@@ -196,5 +213,22 @@ font-weight: 900;
 #restartHardButton:hover{
     background-color: purple;
 }
+#instructions:hover{
+    background-color: purpl;
+}
 
-
+/* Glowing Feature */
+@keyframes glowing {
+    0% {
+      background-color: #2ba805;
+      box-shadow: 0 0 3px #2ba805;
+    }
+    50% {
+      background-color: #49e819;
+      box-shadow: 0 0 10px #49e819;
+    }
+    100% {
+      background-color: #2ba805;
+      box-shadow: 0 0 3px #2ba805;
+    }
+  }
