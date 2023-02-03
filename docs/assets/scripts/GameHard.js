@@ -11,7 +11,7 @@ class GameHard{
       this.verticalEnemiesUp = []
       this.verticalEnemiesDown = []
       this.bonusItems = []
-      this.timer = 50;
+      this.timer = 60;
       this.background = new Image ()
       this.scrollX = 0
       const img1 = new Image();
