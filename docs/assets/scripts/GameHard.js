@@ -199,7 +199,7 @@ checkGameWon(){
 }
 
 checkGameOver(){
-   if (this.frames >= 3050){
+   if (this.frames >= 3650){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = "40px VT323";
